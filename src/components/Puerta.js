@@ -13,7 +13,7 @@ export function Puerta() {
 
   return (
     <div>
-      <h1>Abrir o Cerrar puerta</h1>
+      <h3>Abrir o Cerrar puerta</h3>
       <p><img width="100px" src={estado} alt={estado.includes("Abierta") ? "Puerta Abierta" : "Puerta Cerrada"} /></p>
 
       <p>
