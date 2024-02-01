@@ -1,5 +1,5 @@
 export function Error(){
     return(
-        <h1>Error 404, pagina no encontrada</h1>
+        <h1>Error 404, archivo no encontrado</h1>
     );
 }

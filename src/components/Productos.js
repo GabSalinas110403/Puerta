@@ -3,30 +3,32 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export function Inicio (){
-    const [dataUsuarios, setDataUsuarios] = useState ([]);
+
+export function Productos (){
+    const [dataProductos, setDataProductos] = useState ([]);
 
     useEffect(()=>{
-        axios.get("http://localhost:3000/api/mostrarUsuarios")
+        axios.get("http://localhost:3000/api/mostrarProducto")
         .then((respuesta)=>{
             console.log(respuesta.data);
-            setDataUsuarios(respuesta.data);
+            setDataProductos(respuesta.data);
         })
         .catch((err)=>{
             console.log("Error al recuperar del api"+err);
         });
     },[]);
 
-    const ListaUsuarios=dataUsuarios.map((usuario)=>{
-        var editar="/editar/"+usuario.id;
-        var borrar="/borrar/"+usuario.id;
-        var foto="http://localhost:3000/images/"+usuario.foto;
+    const ListaProductos=dataProductos.map((producto)=>{
+        var editar="/editar/"+producto.id;
+        var borrar="/borrar/"+producto.id;
+        var fotoProd="http://localhost:3000/imagesProd/"+producto.fotoProd;
         return(
             <tr className="aling-middle">
-                <td>{usuario.id}</td>
-                <td>{usuario.nombre}</td>
-                <td>{usuario.usuario}</td>
-                <td><img src={foto} width="100px"/></td>
+                <td>{producto.id}</td>
+                <td>{producto.nombre}</td>
+                <td>{producto.descripcion}</td>
+                <td>{producto.precio}</td>
+                <td><img src={fotoProd} width="100px"/></td>
                 <td>
                     <Link to={editar}>Editar</Link> / 
                     <Link to={borrar}>Borrar</Link>
@@ -41,13 +43,14 @@ export function Inicio (){
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>
-                        <th>Usuario</th>
+                        <th>descripcion</th>
+                        <th>precio</th>
                         <th>Foto</th>
                         <th>Editar / Borrar</th>
                     </tr>
                 </thead>
             <tbody>
-                {ListaUsuarios}
+                {ListaProductos}
             </tbody>
         </table>
     );
