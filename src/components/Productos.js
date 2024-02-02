@@ -28,7 +28,7 @@ export function Productos (){
                 <td>{producto.nombre}</td>
                 <td>{producto.descripcion}</td>
                 <td>{producto.precio}</td>
-                <td><img src={fotoProd} width="100px"/></td>
+                <td><img src={fotoProd} width="100px" alt=""/></td>
                 <td>
                     <Link to={editar}>Editar</Link> / 
                     <Link to={borrar}>Borrar</Link>

@@ -26,7 +26,7 @@ export function Inicio (){
                 <td>{usuario.id}</td>
                 <td>{usuario.nombre}</td>
                 <td>{usuario.usuario}</td>
-                <td><img src={foto} width="100px"/></td>
+                <td><img src={foto} width="100px" alt=""/></td>
                 <td>
                     <Link to={editar}>Editar</Link> / 
                     <Link to={borrar}>Borrar</Link>
