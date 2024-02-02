@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Contador } from "./Contador";
-import { Texto } from "./texto";
+import { Texto } from "./Texto";
 import { Error } from "./Error";
 import { Puerta } from "./Puerta";
 import { Botones } from "./Botones";
