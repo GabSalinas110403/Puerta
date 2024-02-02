@@ -9,10 +9,19 @@ export function Menu(){
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">Usuarios</a>
+                <a className="nav-link active" aria-current="page" href="/">Inicio</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/Productos">Productos</a>
+                <a className="nav-link active" aria-current="page" href="/contador">Contador</a>
+                </li>
+                <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="/texto">Texto</a>
+                </li>
+                <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="/puerta">Puerta</a>
+                </li>
+                <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="/botones">Botones</a>
                 </li>
             </ul>
             <form className="d-flex" role="search">

@@ -1,54 +1,42 @@
-import axios from "axios";
 import { useEffect } from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react"
 
-export function Inicio (){
-    const [dataUsuarios, setDataUsuarios] = useState ([]);
+var data=[
+    {
+        id: 100,
+        noticia:"Mejores alumnos de la UTSJR",
+        autor: "Abc news"
+    },
+    {
+        id: 200,
+        noticia:"UTSJR abre nueva carrera",
+        autor: "MNM news"
+    },
+    {
+        id: 300,
+        noticia:"Becas para alumnos de la UTSJR",
+        autor: "Zxy news"
+    },
+]
 
+export function Inicio(){
+    const[dataNews, setDataNews] = useState(data);
     useEffect(()=>{
-        axios.get("http://localhost:3000/api/mostrarUsuarios")
-        .then((respuesta)=>{
-            console.log(respuesta.data);
-            setDataUsuarios(respuesta.data);
-        })
-        .catch((err)=>{
-            console.log("Error al recuperar del api"+err);
-        });
-    },[]);
+        setDataNews(data);
+    }, []);
 
-    const ListaUsuarios=dataUsuarios.map((usuario)=>{
-        var editar="/editar/"+usuario.id;
-        var borrar="/borrar/"+usuario.id;
-        var foto="http://localhost:3000/images/"+usuario.foto;
+    const lista = dataNews.map((new1, id)=>{
         return(
-            <tr className="aling-middle">
-                <td>{usuario.id}</td>
-                <td>{usuario.nombre}</td>
-                <td>{usuario.usuario}</td>
-                <td><img src={foto} width="100px" alt=""/></td>
-                <td>
-                    <Link to={editar}>Editar</Link> / 
-                    <Link to={borrar}>Borrar</Link>
-                </td>
-            </tr>
+            <div key={id}>
+                <div>{new1.id}</div>
+                <div>{new1.noticia}</div>
+                <div>{new1.autor}</div>
+            </div>
         );
     });
-        
     return(
-        <table className="table table-hover">
-            <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Usuario</th>
-                        <th>Foto</th>
-                        <th>Editar / Borrar</th>
-                    </tr>
-                </thead>
-            <tbody>
-                {ListaUsuarios}
-            </tbody>
-        </table>
+        <div>
+            {lista}
+        </div>
     );
 }
